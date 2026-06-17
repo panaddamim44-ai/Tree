@@ -1,0 +1,497 @@
+/* ===================================
+   AR Plant Explorer
+   style.css
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Kanit',sans-serif;
+}
+
+body{
+    overflow:hidden;
+    background:linear-gradient(#87CEEB,#E6FFE6);
+    width:100vw;
+    height:100vh;
+}
+
+/* -------------------- */
+/* กล้อง */
+/* -------------------- */
+
+#camera{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:1;
+}
+
+/* -------------------- */
+/* Canvas */
+/* -------------------- */
+
+#output{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:2;
+}
+
+/* -------------------- */
+/* แถบข้อมูล */
+/* -------------------- */
+
+#ui{
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    width:280px;
+
+    background:rgba(255,255,255,.85);
+
+    backdrop-filter:blur(8px);
+
+    border-radius:20px;
+
+    padding:18px;
+
+    z-index:20;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+}
+
+#ui h2{
+
+    color:#2E8B57;
+
+    margin-bottom:12px;
+
+}
+
+#score{
+
+    margin-top:12px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#FF9800;
+
+}
+
+#message{
+
+    margin-top:15px;
+
+    color:#444;
+
+    line-height:1.5;
+
+}
+
+/* -------------------- */
+/* ปุ่ม */
+/* -------------------- */
+
+button{
+
+    width:100%;
+
+    margin-top:10px;
+
+    border:none;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    background:#43A047;
+
+    color:white;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    background:#2E7D32;
+
+    transform:scale(1.03);
+
+}
+
+button:active{
+
+    transform:scale(.96);
+
+}
+
+/* -------------------- */
+/* ชิ้นส่วนพืช */
+/* -------------------- */
+
+#parts{
+
+    position:absolute;
+
+    right:15px;
+
+    top:15px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    z-index:20;
+
+}
+
+.part{
+
+    width:150px;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:12px;
+
+    text-align:center;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.2);
+
+    transition:.25s;
+
+    user-select:none;
+
+}
+
+.part:hover{
+
+    transform:translateY(-3px);
+
+    background:#E8F5E9;
+
+}
+
+.part.correct{
+
+    background:#81C784;
+
+    color:white;
+
+}
+
+.part.wrong{
+
+    background:#EF5350;
+
+    color:white;
+
+}
+
+/* -------------------- */
+/* Popup */
+/* -------------------- */
+
+.popup{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    font-size:28px;
+
+    z-index:99;
+
+    animation:pop .4s;
+
+}
+
+@keyframes pop{
+
+0%{
+
+transform:translate(-50%,-50%) scale(.2);
+
+opacity:0;
+
+}
+
+100%{
+
+transform:translate(-50%,-50%) scale(1);
+
+opacity:1;
+
+}
+
+}
+
+/* -------------------- */
+/* ต้นไม้ */
+/* -------------------- */
+
+#plant{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:8%;
+
+    transform:translateX(-50%);
+
+    width:250px;
+
+    z-index:5;
+
+    transition:.5s;
+
+}
+
+#plant img{
+
+    width:100%;
+
+}
+
+/* -------------------- */
+/* ดาว */
+/* -------------------- */
+
+.star{
+
+    color:#FFD700;
+
+    font-size:40px;
+
+    animation:blink 1s infinite;
+
+}
+
+@keyframes blink{
+
+0%{
+
+opacity:.4;
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:.4;
+
+}
+
+}
+
+/* -------------------- */
+/* Progress */
+/* -------------------- */
+
+.progress{
+
+    width:100%;
+
+    height:18px;
+
+    background:#DDD;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    margin-top:15px;
+
+}
+
+.progress-bar{
+
+    width:0;
+
+    height:100%;
+
+    background:#4CAF50;
+
+    transition:.4s;
+
+}
+
+/* -------------------- */
+/* Quiz */
+/* -------------------- */
+
+.quiz{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:360px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    z-index:100;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+}
+
+.quiz h3{
+
+    color:#2E7D32;
+
+    margin-bottom:15px;
+
+}
+
+.answer{
+
+    background:#F5F5F5;
+
+    padding:14px;
+
+    margin-top:10px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.answer:hover{
+
+    background:#C8E6C9;
+
+}
+
+/* -------------------- */
+/* Responsive */
+/* -------------------- */
+
+@media(max-width:768px){
+
+#ui{
+
+width:90%;
+
+left:5%;
+
+}
+
+#parts{
+
+right:5px;
+
+top:auto;
+
+bottom:15px;
+
+flex-direction:row;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+width:100%;
+
+}
+
+.part{
+
+width:110px;
+
+font-size:18px;
+
+}
+
+#plant{
+
+width:180px;
+
+}
+
+.quiz{
+
+width:90%;
+
+}
+
+}
+
+/* -------------------- */
+/* เอฟเฟกต์เรืองแสง */
+/* -------------------- */
+
+.glow{
+
+animation:glow .8s infinite alternate;
+
+}
+
+@keyframes glow{
+
+from{
+
+box-shadow:0 0 10px #00FF00;
+
+}
+
+to{
+
+box-shadow:0 0 35px #00FF00;
+
+}
+
+}
