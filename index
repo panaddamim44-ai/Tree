@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AR Plant Explorer</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+
+<style>
+
+body{
+margin:0;
+overflow:hidden;
+font-family:Arial;
+background:#87CEEB;
+}
+
+#camera{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:1;
+}
+
+canvas{
+position:absolute;
+width:100%;
+height:100%;
+z-index:2;
+}
+
+#ui{
+
+position:absolute;
+top:10px;
+left:10px;
+
+z-index:5;
+
+background:rgba(255,255,255,.8);
+
+padding:10px;
+
+border-radius:15px;
+
+}
+
+button{
+
+padding:12px 20px;
+
+font-size:18px;
+
+border:none;
+
+border-radius:15px;
+
+background:#3CB371;
+
+color:white;
+
+}
+
+#score{
+
+font-size:22px;
+
+margin-top:10px;
+
+}
+
+#message{
+
+margin-top:10px;
+
+font-size:20px;
+
+font-weight:bold;
+
+color:#2E8B57;
+
+}
+
+#parts{
+
+position:absolute;
+
+right:10px;
+
+top:10px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:10px;
+
+z-index:5;
+
+}
+
+.part{
+
+background:white;
+
+padding:10px;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-size:22px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<video id="camera" autoplay playsinline></video>
+
+<canvas id="output"></canvas>
+
+<div id="ui">
+
+<h2>🌱 AR Plant Explorer</h2>
+
+<button id="startBtn">
+
+เริ่มเกม
+
+</button>
+
+<div id="score">
+
+คะแนน : 0
+
+</div>
+
+<div id="message">
+
+กดเริ่มเกม
+
+</div>
+
+</div>
+
+<div id="parts">
+
+<div class="part" data-name="root">🌱 ราก</div>
+
+<div class="part" data-name="stem">🪵 ลำต้น</div>
+
+<div class="part" data-name="leaf">🍃 ใบ</div>
+
+<div class="part" data-name="flower">🌸 ดอก</div>
+
+<div class="part" data-name="fruit">🍎 ผล</div>
+
+<div class="part" data-name="sun">☀️ แสงแดด</div>
+
+<div class="part" data-name="water">💧 น้ำ</div>
+
+</div>
+
+<script src="game.js"></script>
+
+</body>
+
+</html>
